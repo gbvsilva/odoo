@@ -1,0 +1,78 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+    <record model="ir.ui.view" id="to-do.list">
+      <field name="name">to-do list</field>
+      <field name="model">to-do.to-do</field>
+      <field name="arch" type="xml">
+        
+        <tree>
+          <field name="name"/>
+          <field name="author"/>
+        </tree>
+
+        <form>
+          <field name="name"/>
+          <field name="author"/>
+          <field name="responsable"/>
+          <field name="description"/>
+          <field name="isFinished"/>
+          <field name="createdAt"/>
+        </form>
+
+        <search>
+          <field name="name"/>
+          <field name="author"/>
+          <field name="createdAt"/>
+        </search>
+
+        <graph>
+          <field name="responsable"/>
+        </graph>
+
+      </field>
+    </record>
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="to-do.action_window">
+      <field name="name">to-do window</field>
+      <field name="res_model">to-do.to-do</field>
+      <field name="view_mode">tree,form,search,graph</field>
+    </record>
+
+
+    <!-- server action to the one above -->
+
+    <record model="ir.actions.server" id="to-do.action_server">
+      <field name="name">to-do server</field>
+      <field name="model_id" ref="model_to-do_to-do"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form,search,graph",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+
+
+    <!-- Top menu item -->
+
+    <menuitem name="to-do" id="to-do.menu_root"/>
+
+    <!-- menu categories -->
+
+    <menuitem name="Menu 1" id="to-do.menu_1" parent="to-do.menu_root"/>
+    <menuitem name="Menu 2" id="to-do.menu_2" parent="to-do.menu_root"/>
+
+    <!-- actions -->
+
+    <menuitem name="List" id="to-do.menu_1_list" parent="to-do.menu_1"
+              action="to-do.action_window"/>
+    <menuitem name="Server to list" id="to-do" parent="to-do.menu_2"
+              action="to-do.action_server"/>
+
+  </data>
+</odoo>
