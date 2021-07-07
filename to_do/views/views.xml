@@ -14,7 +14,7 @@
         <form>
           <field name="name"/>
           <field name="author"/>
-          <field name="responsable"/>
+          <field name="partner_id"/>
           <field name="description"/>
           <field name="isFinished"/>
           <field name="createdAt"/>
@@ -27,7 +27,7 @@
         </search>
 
         <graph>
-          <field name="responsable"/>
+          <field name="partner_id"/>
         </graph>
 
       </field>
@@ -55,6 +55,11 @@
           "view_mode": "tree,form,search,graph",
           "res_model": model._name,
         }
+      </field>
+      <field name="help" type="html">
+        <p class="o_view_nocontent_smiling_face">
+          create your first task!
+        </p>
       </field>
     </record>
 

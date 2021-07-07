@@ -4,6 +4,7 @@
 
     'summary': """
         Tasks to do""",
+    'sequence': -100
 
     'description': """
         A database of tasks
@@ -26,7 +27,7 @@
     'data': [
         # 'security/ir.model.access.csv',
         'views/views.xml',
-        'views/templates.xml',
+        'security/ir.model.access.csv',
     ],
     # only loaded in demonstration mode
     'demo': [],
