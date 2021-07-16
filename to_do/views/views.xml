@@ -1,47 +1,47 @@
 <odoo>
-  <data>
-    <!-- explicit list view definition -->
-
+  
     <record model="ir.ui.view" id="to_do.list">
       <field name="name">to_do list</field>
       <field name="model">to_do.to_do</field>
       <field name="arch" type="xml">
         
-        <tree>
+        <tree string="Task List">
           <field name="name"/>
           <field name="author"/>
-          <field name="partner_id"/>
-          <field name="description"/>
-          <field name="isFinished"/>
           <field name="createdAt"/>
         </tree>
-        
+
       </field>
     </record>
 
+
+    <record model="ir.ui.view" id="to_do.form">
+      <field name="name">to_do form</field>
+      <field name="model">to_do.to_do</field>
+      <field name="arch" type="xml">
+        
+        <form string="Tasks">
+          <sheet>
+            <group>
+              <field name="name"/>
+              <field name="author"/>
+              <field name="partner_id"/>
+              <field name="description"/>
+              <field name="isFinished"/>
+              <field name="createdAt"/>
+            </group>
+          </sheet>
+        </form>
+
+      </field>
+    </record>
 
     <!-- actions opening views on models -->
 
     <record model="ir.actions.act_window" id="to_do.action_window">
       <field name="name">to_do window</field>
       <field name="res_model">to_do.to_do</field>
-      <field name="view_mode">tree</field>
-    </record>
-
-
-    <!-- server action to the one above -->
-
-    <record model="ir.actions.server" id="to_do.action_server">
-      <field name="name">to_do server</field>
-      <field name="model_id" ref="model_to_do_to_do"/>
-      <field name="state">code</field>
-      <field name="code">
-        action = {
-          "type": "ir.actions.act_window",
-          "view_mode": "tree",
-          "res_model": model._name,
-        }
-      </field>
+      <field name="view_mode">tree,form</field>
       <field name="help" type="html">
         <p class="o_view_nocontent_smiling_face">
           create your first task!
@@ -49,22 +49,17 @@
       </field>
     </record>
 
-
     <!-- Top menu item -->
 
     <menuitem name="to_do" id="to_do.menu_root"/>
 
     <!-- menu categories -->
 
-    <menuitem name="Menu 1" id="to_do.menu_1" parent="to_do.menu_root"/>
-    <menuitem name="Menu 2" id="to_do.menu_2" parent="to_do.menu_root"/>
+    <menuitem name="Menu" id="to_do.menu_1" parent="to_do.menu_root"/>
 
     <!-- actions -->
 
     <menuitem name="List" id="to_do.menu_1_list" parent="to_do.menu_1"
               action="to_do.action_window"/>
-    <menuitem name="Server to list" id="to_do" parent="to_do.menu_2"
-              action="to_do.action_server"/>
-
-  </data>
+  
 </odoo>
