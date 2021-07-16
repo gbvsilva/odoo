@@ -55,11 +55,14 @@
 
     <!-- menu categories -->
 
-    <menuitem name="Menu" id="to_do.menu_1" parent="to_do.menu_root"/>
+    <menuitem name="Menu 1" id="to_do.menu_1" parent="to_do.menu_root"/>
+    <menuitem name="Menu 2" id="to_do.menu_2" parent="to_do.menu_root"/>
 
     <!-- actions -->
 
-    <menuitem name="List" id="to_do.menu_1_list" parent="to_do.menu_1"
+    <menuitem name="Task List" id="to_do.menu_1_list" parent="to_do.menu_1"
+              action="to_do.action_window"/>
+    <menuitem name="Partner List" id="to_do.menu_2_list" parent="to_do.menu_2"
               action="to_do.action_window"/>
   
 </odoo>
