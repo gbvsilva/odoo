@@ -4,7 +4,7 @@
 
     'summary': """
         Tasks to do""",
-    'sequence': -100
+    'sequence': -100,
 
     'description': """
         A database of tasks
@@ -21,16 +21,16 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base'],
+    'depends': [],
 
     # always loaded
     'data': [
-        # 'security/ir.model.access.csv',
         'views/views.xml',
-        'security/ir.model.access.csv',
+        'security/ir.model.access.csv'
     ],
     # only loaded in demonstration mode
     'demo': [],
+    'qweb': [],
     'installable': True,
     'application': True,
     'auto_install': False
